@@ -1,0 +1,68 @@
+{
+    "Spanish": {
+        "Regular -ar verbs": [
+            ["amar", "to love"],
+            ["andar", "to walk"],
+            ["bailar", "to dance"],
+            ["buscar", "to search for"],
+            ["cantar", "to sing"],
+            ["comprar", "to buy"],
+            ["entrar", "to enter"],
+            ["escuchar to listen"],
+            ["esperar", "to wait"],
+            ["estudiar", "to study"],
+            ["hablar", "to speak"],
+            ["llegar", "to arrive"],
+            ["llevar", "to wear"],
+            ["mirar", "to watch"],
+            ["pagar", "to pay"],
+            ["practicar", "to practise"],
+            ["preparar", "to prepare"],
+            ["tocar", "to touch"],
+            ["tomar", "to consume"],
+            ["trabajar", "to work"]
+        ],
+        "Regular -er verbs": [
+            ["aprender", "to learn"],
+            ["beber", "to drink"],
+            ["comer", "to eat"],
+            ["cometer", "to commit"],
+            ["comprender", "to comprehend"],
+            ["correr", "to run"],
+            ["creer", "to believe"],
+            ["deber", "to owe"],
+            ["leer", "to read"],
+            ["meter", "to put"],
+            ["poseer", "to possess"],
+            ["romper", "to break"],
+            ["temer", "to fear"],
+            ["vender", "to sell"]
+        ],
+        "Regular -ir verbs": [
+            ["abrir", "to open"],
+            ["admitir", "to admit"],
+            ["asistir", "to attend"],
+            ["cubrir", "to cover"],
+            ["decidir", "to decide"],
+            ["decubrir", "to describe"],
+            ["discutir", "to discuss"],
+            ["escribir", "to write"],
+            ["existir", "to exist"],
+            ["permitir", "to permit"],
+            ["recibir", "to receive"],
+            ["subir", "to climb"],
+            ["sufrir", "to suffer"],
+            ["unir", "to unite"],
+            ["vivir", "to live"]
+        ],
+        "Stem-changing o → ue verbs": [
+
+        ],
+        "Stem-changing e → ie verbs": [
+
+        ],
+        "Stem-changing e → i verbs": [
+
+        ]
+    }
+}
