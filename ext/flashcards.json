@@ -124,6 +124,47 @@
             ["repetir", "to repeat"],
             ["seguir", "to continue"],
             ["servir", "to serve"]
+        ],
+        "Reflexive verbs": [
+            ["acostarse", "to go to bed"],
+            ["afeitarse", "to shave onselef"],
+            ["bañarse", "to bathe oneself"],
+            ["casarse", "to get married"],
+            ["cepillarse", "to brush oneself"],
+            ["despertarse", "to wake up"],
+            ["desvestirse", "to undress oneself"],
+            ["dormirse", "to fall asleep"],
+            ["ducharse", "to take a shower"],
+            ["enfermarse", "to get sick"],
+            ["enojarse", "to get angry"],
+            ["irse", "to go away"],
+            ["lavarse", "to wash oneself"],
+            ["levantarse", "to get up"],
+            ["llamarse", "to call oneself"],
+            ["mirarse", "to look at oneself"],
+            ["peinarse", "to comb one's hair"],
+            ["preocuparse", "to worry"],
+            ["probarse", "to try on"],
+            ["quitarse", "to take off"],
+            ["secarse", "to dry oneself"],
+            ["sentarse", "to sit down"],
+            ["sentirse", "to feel"],
+            ["verse", "to see oneself"],
+            ["vestirse", "to dress oneself"]
+        ],
+        "Verbs like gustar": [
+            ["bastar", "to be enough to"],
+            ["disgustar", "to be repugnant to"],
+            ["doler", "to be painful to"],
+            ["encantar", "to be enchanting to"],
+            ["faltar", "to be lacking to"],
+            ["fascinar", "to be fascinating to"],
+            ["gustar", "to be pleasing to"],
+            ["importar", "to be important to"],
+            ["interesar", "to be interesting to"],
+            ["molestar", "to be bothersome to"],
+            ["parecer", "to appear to"],
+            ["sobrar", "to be left over to"]
         ]
     }
 }
