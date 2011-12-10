@@ -1,0 +1,38 @@
+input {
+    font-family: "Palatino Linotype", "Palatino", "URW Palladio L", "Book Antiqua", "Baskerville", "Bitstream Charter", "Garamond", "Georgia", serif;
+}
+
+header {
+    text-align: center;
+}
+
+header h2, header h3 {
+    display: inline;
+}
+
+header h2, header h3 {
+    padding-right: 1em;
+}
+
+#card {
+    border: 1px solid #000;
+}
+
+#score, #card {
+    display: none;
+}
+
+#score span, #answer span, input {
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.success {
+    color: #22bd0d;
+    background-color: inherit;
+}
+
+.failure {
+    color: #bd220d;
+    background-color: inherit;
+}
