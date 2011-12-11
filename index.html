@@ -11,14 +11,22 @@
       <h1>Language flashcards</h1>
       <h2 id="language-title"></h2>
       <h3 id="list-title"></h3>
+      <p id="score">
+        <span id="correct" class="success"></span> correct /
+        <span id="remaining"></span> remaining
+      </p>
+      <ul id="steps"></ul>
     </header>
+    <section id="card-info"></section>
     <section id="card">
+      <h1 id="word"></h1>
+      <p>&nbsp;<span id="correct-answer"></span></p>
       <form action="javascript:void(0);">
-        <h1 id="word"></h1>
-        <p>
-          <input type="text" id="answer" autocomplete="off">
+        <p id="answer">
+          <input type="text" autocomplete="off">
+          <span class="success">&#10003;</span>
+          <span class="failure">&#10007;</span>
         </p>
-        <p id="result"></p>
       </form>
     </section>
     <nav id="menu"></nav>

@@ -1,30 +1,46 @@
-input {
-    font-family: "Palatino Linotype", "Palatino", "URW Palladio L", "Book Antiqua", "Baskerville", "Bitstream Charter", "Garamond", "Georgia", serif;
+body {
+    max-width: 50em;
+    margin: 0em auto;
 }
 
-header {
+#score, #card, nav ul ul, #language-title, #list-title, #score {
+    display: none;
+}
+
+header, #card>p {
+    display: block;
     text-align: center;
 }
 
-header h2, header h3 {
+#language-title, #list-title {
     display: inline;
 }
 
-header h2, header h3 {
+#language-title {
     padding-right: 1em;
 }
 
 #card {
+    padding: 0.5em;
     border: 1px solid #000;
 }
 
-#score, #card {
-    display: none;
+#word {
+    font-size: 400%;
 }
 
-#score span, #answer span, input {
+#score span, #answer span, #answer input, #correct-answer {
     font-size: 200%;
     font-weight: bold;
+}
+
+#answer input {
+    width: 90%;
+}
+
+#answer>span {
+    float: right;
+    font-size: 400%;
 }
 
 .success {
@@ -35,4 +51,33 @@ header h2, header h3 {
 .failure {
     color: #bd220d;
     background-color: inherit;
+}
+
+nav {
+    clear: both;
+}
+
+nav ul, #steps {
+    list-style: none;
+    padding-left: 0em;
+    margin-left: 0em;
+    text-align: center;
+}
+
+#steps li {
+    display: inline;
+    margin: 0em 0.5em;
+}
+
+#card-info dt, #card-info dd {
+    float: left;
+    margin: 0em 0.5em;
+}
+
+#card-info dt {
+    font-weight: bold;
+}
+
+#card-info dd {
+    margin-right: 2em;
 }

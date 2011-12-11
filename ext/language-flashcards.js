@@ -4,6 +4,12 @@ var repetitions = 5;
 // Placeholder for flashcards; loaded at the bottom of this file.
 var flashcards = {};
 
+var steps = [['info', 'Card info'],
+             ['face', 'Side A'],
+             ['reverse', 'Side B']];
+
+var clickable = { class: 'click' };
+
 function element(name, content, attributes) {
     var e = $(document.createElement(name));
 
@@ -13,43 +19,123 @@ function element(name, content, attributes) {
     return e;
 }
 
-function showList(language, list, cards) {
-    $('#language-title').empty().append(language);
-    $('#list-title').empty().append(list);
+function showList(language, list, cards, step) {
+    $('#language-title').show().text(language);
+    $('#list-title').show().text(list);
+    $('#card-info').empty();
+    $('#score').hide();
+    $('#card').hide();
+    $('#menu ul ul').hide();
+    $('#steps').empty();
 
-    var cardList = cards;
+    $.each(steps, function(i, step) {
+        var item = element('li', step[1], clickable);
 
-    for (var i = 1; i < repetitions; i++) {
-        cardList = cardList.concat(cards);
+        item.click(function() {
+            showList(language, list, cards, step[0]);
+        });
+
+        $('#steps').append(item);
+    });
+
+    if (step == 'info') {
+        showInfo(cards);
+    } else if (step == 'face') {
+        startList(cards);
+    } else if (step == 'reverse') {
+        startList($.map(cards, function(card) {
+            return [card.reverse()];
+        }));
     }
-
-    nextCard(cardList);
 }
 
-function nextCard(remainingCards) {
+function showInfo(cards) {
+    var cardInfo = element('dl');
+
+    $.each(cards, function(i, card) {
+        cardInfo.
+            append(element('dt', card[0])).
+            append(element('dd', card[1]));
+    });
+
+    $('#card-info').append(cardInfo);
+}
+
+function startList(cards) {
+    for (var i = 1; i < repetitions; i++) {
+        cards = cards.concat(cards);
+    }
+
+    $('#score').show();
+    $('#card').show();
+
+    nextCard(cards, []);
+}
+
+function flipCard(card) {
+    $('#word').text(card);
+}
+
+function submitFunction(func) {
+    $('#card').off('submit', 'form').on('submit', 'form', func);
+}
+
+function nextCard(remainingCards, history) {
     remainingCards.sort(function() { return 0.5 - Math.random(); })
+
+    $('#card>p>span').empty();
+    $('#header span').empty();
+    $('#answer span').hide();
+    $('#remaining').text(remainingCards.length);
+
+    $('#correct').text($.map(history, function(item) {
+        return item.correct || null;
+    }).length);
 
     currentCard = remainingCards.shift();
 
-    $('#word').empty().append(currentCard[0]);
-    $('#answer').val("").focus();
+    flipCard(currentCard[0]);
 
-    $('#card').off('submit', 'form').on('submit', 'form', function() {
-        checkAnswer(currentCard, remainingCards);
+    $('#answer input').val('').focus();
+
+    submitFunction(function() {
+        checkAnswer(currentCard, remainingCards, history);
     });
 }
 
-function checkAnswer(card, remainingCards) {
-    var answer = $('#answer').val().toLowerCase();
+function checkAnswer(card, remainingCards, history) {
+    var answer = $('#answer input').val().toLowerCase();
+    var correct = (answer == card[1]);
 
-    if (answer != card[1]) {
-        remainingCards.push(card);
-        $('#result').empty().append('Uh-uh!');
+    if (correct) {
+        $('#answer .success').show();
     } else {
-        $('#result').empty().append('Woo-hoo!');
+        remainingCards.push(card);
+        $('#answer .failure').show();
     }
 
-    nextCard(remainingCards);
+    history.push({
+        challenge: card[0],
+        response: card[1],
+        answer: answer,
+        correct: correct
+    });
+
+    $('#correct-answer').text(card[1]);
+
+    submitFunction(function () {
+        if (remainingCards.length == 0) {
+            showCompletion(history);
+        } else {
+            nextCard(remainingCards, history);
+        }
+    });
+}
+
+function showCompletion(history) {
+    $('#card>p>span').empty();
+    $('#answer span').hide();
+    $('#word').text('All done!');
 }
 
 function showMenu() {
@@ -57,26 +143,30 @@ function showMenu() {
     var menu = element('ul');
 
     $.each(flashcards, function(language, lists) {
-
         var languageWrapper = element('li');
         var languageMenu = element('ul');
+        var header = element('h2', language, clickable);
+
+        header.click(function() {
+            $('#menu ul ul').hide();
+            $(this).siblings().show();
+        });
 
         $.each(lists, function(list, cards) {
-            var link = element('span', list, { class: 'click' });
+            var link = element('span', list, clickable);
 
             link.click(function() {
-                showList(language, list, cards);
+                showList(language, list, cards, 'info');
             });
 
             languageMenu.append(element('li').append(link));
         });
 
-        languageWrapper.append(element('h2', language));
-        languageWrapper.append(languageMenu);
+        languageWrapper.append(header).append(languageMenu);
         menu.append(languageWrapper);
     });
 
-    wrapper.empty().append(element('h1', 'Menu')).append(menu);
+    wrapper.empty().append(element('h1', 'Choose list')).append(menu);
 
     return wrapper;
 }
