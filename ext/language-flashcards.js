@@ -1,5 +1,5 @@
 // Number of times each card needs to be guessed correctly.
-var repetitions = 5;
+var repetitions = 3;
 
 // Placeholder for flashcards; loaded at the bottom of this file.
 var flashcards = {};
