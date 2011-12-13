@@ -82,17 +82,21 @@ function submitFunction(func) {
     $('#card').off('submit', 'form').on('submit', 'form', func);
 }
 
-function nextCard(remainingCards, history) {
-    remainingCards.sort(function() { return 0.5 - Math.random(); })
-
-    $('#card>p>span').empty();
+function updateScore(remainingCards, history) {
     $('#header span').empty();
-    $('#answer span').hide();
     $('#remaining').text(remainingCards.length);
 
     $('#correct').text($.map(history, function(item) {
         return item.correct || null;
     }).length);
+}
+
+function nextCard(remainingCards, history) {
+    remainingCards.sort(function() { return 0.5 - Math.random(); })
+
+    updateScore(remainingCards, history);
+    $('#card>p>span').empty();
+    $('#answer span').hide();
 
     currentCard = remainingCards.shift();
 
@@ -127,14 +131,15 @@ function checkAnswer(card, remainingCards, history) {
 
     submitFunction(function () {
         if (remainingCards.length == 0) {
-            showCompletion(history);
+            showCompletion(remainingCards, history);
         } else {
             nextCard(remainingCards, history);
         }
     });
 }
 
-function showCompletion(history) {
+function showCompletion(remainingCards, history) {
+    updateScore(remainingCards, history);
     $('#card>p>span').empty();
     $('#answer span').hide();
     $('#word').text('All done!');
