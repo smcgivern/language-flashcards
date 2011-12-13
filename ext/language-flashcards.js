@@ -1,5 +1,5 @@
 // Number of times each card needs to be guessed correctly.
-var repetitions = 3;
+var repetitions = 5;
 
 // Placeholder for flashcards; loaded at the bottom of this file.
 var flashcards = {};
@@ -62,14 +62,16 @@ function showInfo(cards) {
 }
 
 function startList(cards) {
+    var cardList = [];
+
     for (var i = 1; i < repetitions; i++) {
-        cards = cards.concat(cards);
+        cardList = cardList.concat(cards);
     }
 
     $('#score').show();
     $('#card').show();
 
-    nextCard(cards, []);
+    nextCard(cardList, []);
 }
 
 function flipCard(card) {
