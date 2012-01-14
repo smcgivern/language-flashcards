@@ -142,6 +142,7 @@ function showCompletion(remainingCards, history) {
     updateScore(remainingCards, history);
     $('#card>p>span').empty();
     $('#answer span').hide();
+    $('#answer input').val('');
     $('#word').text('All done!');
 }
 
