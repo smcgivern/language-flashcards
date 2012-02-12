@@ -111,7 +111,7 @@ function nextCard(remainingCards, history) {
 
 function checkAnswer(card, remainingCards, history) {
     var answer = $('#answer input').val().toLowerCase();
-    var correct = (answer == card[1]);
+    var correct = (answer == card[1].toLowerCase());
 
     if (correct) {
         $('#answer .success').show();
