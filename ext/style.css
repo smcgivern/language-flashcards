@@ -53,17 +53,6 @@ header, #card>p {
     background-color: inherit;
 }
 
-nav {
-    clear: both;
-}
-
-nav ul, #steps {
-    list-style: none;
-    padding-left: 0em;
-    margin-left: 0em;
-    text-align: center;
-}
-
 #steps li {
     display: inline;
     margin: 0em 0.5em;
@@ -80,4 +69,31 @@ nav ul, #steps {
 
 #card-info dd {
     margin-right: 2em;
+}
+
+nav h1 {
+    clear: both;
+    margin: 0em;
+    padding: 0.3em 0em 0em 0em;
+}
+
+nav ul, #steps {
+    list-style: none;
+    padding-left: 0em;
+    margin-left: 0em;
+}
+
+nav h2 {
+    margin: 0em;
+    width: 15em;
+    text-align: left;
+}
+
+nav li {
+    float: left;
+    width: 15em;
+}
+
+nav li ul {
+    width: 15em;
 }
