@@ -150,6 +150,10 @@ function showMenu() {
     var wrapper = $('#menu');
     var menu = element('ul');
 
+    // Switch off auto-capitalize and -correct for iOS.
+    $('#answer input').attr('autocapitalize', 'off');
+    $('#answer input').attr('autocorrect', 'off');
+
     $.each(flashcards, function(language, lists) {
         var languageWrapper = element('li');
         var languageMenu = element('ul');
