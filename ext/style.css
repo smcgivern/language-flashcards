@@ -26,6 +26,7 @@ header, #card>p {
 }
 
 #word {
+    margin-top: 0.5em;
     font-size: 400%;
 }
 
@@ -34,13 +35,18 @@ header, #card>p {
     font-weight: bold;
 }
 
+#answer {
+    margin-bottom: 0em;
+}
+
 #answer input {
-    width: 80%;
+    width: 85%;
 }
 
 #answer>span {
     float: right;
     font-size: 400%;
+    margin-top: 0.15em;
 }
 
 .success {
